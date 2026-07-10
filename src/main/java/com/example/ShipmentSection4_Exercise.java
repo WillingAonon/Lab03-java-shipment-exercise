@@ -1,10 +1,12 @@
+package com.example;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // ╔══════════════════════════════════════════════════════════╗
 //  SECTION 4 — แบบฝึกหัด (Exercise)
-//  ชื่อนักศึกษา : ___________________________
-//  รหัสนักศึกษา : ___________________________
+//  ชื่อนักศึกษา : ____ณัฐภัทร ฉ่ำตะคุ_______________________
+//  รหัสนักศึกษา : _____673380583-4______________________
 // ╚══════════════════════════════════════════════════════════╝
 //
 //  โจทย์:
@@ -61,16 +63,16 @@ class Shipment {
         } else {
             cost = weightKg * EXPRESS_RATE;
         }
-        return 0;  // ← ผิด ควร return cost
+        return cost;  // ← ผิด ควร return cost
     }
 
     // 👉 TODO B : toString() ยังไม่สมบูรณ์
     //             ให้แสดงในรูปแบบนี้ (ดูตัวอย่างใน ExpectedOutput_Section4.md):
-    //             [SC001]  5.00 กก. | STANDARD |    200.00 บาท
+    //             [SC001]  5.00   | STANDARD |    200.00 บาท
     //             แนะนำ: ใช้ String.format() และเรียก calculateCost()
     @Override
     public String toString() {
-        return "[" + trackingNumber + "] ???";  // ← เติมให้ครบ
+        return "[" + trackingNumber + "]"+ weightKg + "กก." + "|" + type + "|" +  calculateCost() + "บาท" ;// ← เติมให้ครบ
     }
 }
 
@@ -97,7 +99,7 @@ class ShippingCompany {
     //             แก้ loop condition ให้ถูกต้อง
     public double getTotalCost() {
         double total = 0;
-        for (int i = 0; i < 1; i++) {          // ← ผิด ควรเป็น i < shipments.size()
+        for (int i = 0; i < shipments.size(); i++) {          // ← ผิด ควรเป็น i < shipments.size()
             total += shipments.get(i).calculateCost();
         }
         return total;
@@ -114,9 +116,12 @@ class ShippingCompany {
         System.out.println("========================================");
 
         // 1) วนลูปแสดงแต่ละ shipment ตรงนี้
-
+        for (Shipment shipment : shipments) {
+            System.out.println(shipment.toString());
+        }
         System.out.println("----------------------------------------");
         // 2) แสดงยอดรวมตรงนี้
+        System.out.printf ("  ยอดรวมทั้งหมด   :    %.2f บาท%n", getTotalCost());
     }
 }
 
