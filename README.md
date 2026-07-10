@@ -237,8 +237,8 @@ git push origin main
 ### Step 8 — Push และส่งงาน
 
 ```bash
-git add src/main/java/com/example/ShipmentSectionX_Exercise.java
-git commit -m "fix: แก้ไข TODO Section X เสร็จสมบูรณ์"
+git add src/main/java/com/example/ShipmentSection4_Exercise.java
+git commit -m "fix: แก้ไข TODO Section 4 เสร็จสมบูรณ์"
 git push origin main
 ```
 
